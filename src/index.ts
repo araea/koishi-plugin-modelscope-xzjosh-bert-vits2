@@ -1,7 +1,51 @@
 import {Context, Schema, Logger, h} from 'koishi'
 
 export const name = 'modelscope-xzjosh-bert-vits2'
-export const usage = `## 🐱 QQ 群
+export const usage = `## 🎮 使用
+
+使用格式：\`bertVit.角色名 <文本>\`
+
+示例：
+\`\`\`
+bertVit.冰糖 你好，我是冰糖，很高兴认识你！
+\`\`\`
+
+## 🌼 指令
+
+本插件支持以下角色的语音合成：
+
+- 冰糖
+- 陈泽
+- 坏女人星瞳
+- 梅西
+- 珈乐
+- 乃琳
+- 七海
+- 永雏塔菲
+- 东雪莲
+- 明前奶绿
+- 尼奈
+- 科比
+- 丁真
+- 炫神
+- 电棍
+- 阿梓
+- 星瞳
+- 孙笑川
+- 向晚
+- 嘉然
+- 剑魔
+- 贝拉
+- 扇宝
+- 恬豆
+- 黑桃影
+- 外卖姐姐扇宝
+- 鹿鸣
+- 文静
+
+每个角色都可以使用 \`bertVit.角色名 <文本>\` 的格式进行语音合成。
+
+## 🐱 QQ 群
 
 - 956758505
 `
