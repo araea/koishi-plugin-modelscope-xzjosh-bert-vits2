@@ -1,13 +1,26 @@
 {
   "name": "koishi-plugin-modelscope-xzjosh-bert-vits2",
-  "description": "提供基于 ModelScope 平台 xzjosh Bert-VITS2 模型的 AI 语音合成功能，支持多种角色声音。",
-  "version": "0.0.1",
+  "description": "提供基于 ModelScope 平台 [xzjosh bert-vits2](https://www.modelscope.cn/studios/xzjosh/Bert-VITS2) 模型的 AI 语音合成功能，支持 vits 服务和多种角色声音，例如东雪莲、丁真。",
+  "version": "0.0.6",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
     "lib",
     "dist"
   ],
+  "koishi": {
+    "service": {
+      "required": [
+        "database"
+      ],
+      "optional": [
+        "monetary"
+      ]
+    },
+    "implements": [
+      "vits"
+    ]
+  },
   "license": "MIT",
   "author": "Nawyjx <3373167460@qq.com>",
   "homepage": "https://www.npmjs.com/package/koishi-plugin-modelscope-xzjosh-bert-vits2?activeTab=readme",
@@ -32,5 +45,8 @@
   ],
   "peerDependencies": {
     "koishi": "^4.17.9"
+  },
+  "devDependencies": {
+    "koishi-plugin-monetary": "^0.1.3"
   }
 }
