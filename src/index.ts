@@ -138,7 +138,6 @@ class VitsService extends Service {
     const url = generateUrl(foundStudio, response);
     return h.audio(url);
   }
-
   //
 }
 
