@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-modelscope-xzjosh-bert-vits2",
   "description": "提供基于 ModelScope 平台 [xzjosh bert-vits2](https://www.modelscope.cn/studios/xzjosh/Bert-VITS2) 模型的 AI 语音合成功能，支持 vits 服务和多种角色声音，例如东雪莲、丁真。",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [

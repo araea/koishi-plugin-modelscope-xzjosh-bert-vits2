@@ -70,7 +70,7 @@ export const Config: Schema<Config> = Schema.object({
   perInvocationCurrencyCost: Schema.number().min(0).default(0).description(`每次语音合成消耗的货币数量，需加载 monetary 服务。`),
   shouldSendPostPurchaseNotification: Schema.boolean().default(false).description(`是否在用户消费后发送提示消息。`),
   vitsCharacterVoice: Schema.union(['冰糖', '陈泽', '坏女人星瞳', '梅西', '珈乐', '乃琳', '七海', '永雏塔菲', '东雪莲', '明前奶绿', '尼奈', '科比', '丁真', '炫神', '电棍', '阿梓', '星瞳', '孙笑川', '向晚', '嘉然', '剑魔', '贝拉', '扇宝', '恬豆', '黑桃影', '外卖姐姐扇宝', '鹿鸣', '文静']).default('文静').description(`提供 Vits 服务的角色语音。`),
-})
+}) as any
 
 // smb*
 declare module 'koishi' {
@@ -240,7 +240,7 @@ const studios: Studio[] = [
     language: 'auto',
 
   }, {
-    author: 'xzjosh',
+    author: 'zuorinanqiang',
     name: '东雪莲',
     model: 'Azuma-Bert-VITS2-2.3',
     speaker: '东雪莲',
@@ -287,9 +287,9 @@ const studios: Studio[] = [
 
   },
   {
-    author: 'xzjosh',
+    author: 'jrui0920',
     name: '丁真',
-    model: 'DZ-Bert-VITS2-2.3',
+    model: 'DZhen-Bert-VITS2-2.3',
     speaker: '丁真',
     SDPRatio: 0.5,
     Noise: 0.5,
@@ -529,6 +529,7 @@ export async function apply(ctx: Context, config: Config) {
           if (!ctx.monetary) {
             return `需加载 monetary 服务。`
           }
+          // @ts-ignore
           const uid = user.id
           const getUserMonetary = await ctx.database.get('monetary', {uid});
           if (getUserMonetary.length === 0) {
@@ -569,7 +570,7 @@ function findStudioByName(name: string): Studio | undefined {
 async function getToken(): Promise<string> {
   const url = 'https://www.modelscope.cn/api/v1/studios/token';
   const headers = {
-    'Cookie': 't=090f6e697c1d60a81d7f5b226738bb6e; h_uid=2217158702449; csrf_session=MTcxODk4NzAyN3xEdi1CQkFFQ180SUFBUkFCRUFBQU12LUNBQUVHYzNSeWFXNW5EQW9BQ0dOemNtWlRZV3gwQm5OMGNtbHVad3dTQUJCelltUnRTek5UTmt4R05FdHJla2RFfHDxGYpMQXx0-uNf8i8UIpmPyvAZ-GA7b08rM5K5plSt; csrf_token=OKj2KQsYgxz0MPjt-YBrRw1IjDo%3D; m_session_id=35910835-8295-4da7-8cd4-025e4f4eb3cd; tfstk=fQJEbZGKYvHeUJAl7N6PuHQ7m_WdFt3jrL_5q3xlAwb3dJak_FT9FBT5Ra8y2E5kd36hrgxXoH_CR9qoZe8TdU6ntb2k5U5nqDC5qdR2L8edZ3xM_g7TdW9y28SkqUndPDh6vHBREqgXzxtpvpg9uc31E0xikVmIIxMXvHqCxmtih0Hlje7lrTfhZhbGWizhEWbobNjPD74HrTmwjNI8EMfhrPqGDgcUwabbQi5nmgRef1mVx67DYseuUdyfTZxh78j9QMkAoHbaE8b3DloDbHgUHh6pEESXRA2eu3xvZ1JzSq7JQhvHZhUEjt-w1I1e_22P5psPiTfaq8xNEBLvItD07GdMAQvp8uylvp9faZCZq8C5IK1Dier-DhXhqUCvFqed-3xvHI6qLrIesnWN4DaRjub2eBzua6jObZiZjIOec1zCvtO8w7Cp6G7jvDF8w6jObZiZb7FR9CINlDnd.; isg=BAkJZvJDi8HjkHTdL9EhXiDeGDVjVv2I4jxPPqt-hfAv8ikE86YNWPckMNbEsZXA'
+    'Cookie': 't=090f6e697c1d60a81d7f5b226738bb6e; h_uid=2217158702449; m_session_id=35910835-8295-4da7-8cd4-025e4f4eb3cd; csrf_session=MTcyMTgxMjQ1OXxEdi1CQkFFQ180SUFBUkFCRUFBQU12LUNBQUVHYzNSeWFXNW5EQW9BQ0dOemNtWlRZV3gwQm5OMGNtbHVad3dTQUJCSFZUbGhiRFY2YTFSMWFWUnZXbU5xfF75rWiyp0hmp211EgY693namxillAM8rcujtM60hgQB; csrf_token=7ta9xcnVH002DRTKrPV21b4JLuA%3D; acw_tc=0b62600e17218142572743805e5b132336766ca4b4b9130ea74093de2cf0c5; tfstk=f7wZm51ObOBZ5CPm82Mqz8_axkMOoxaNPO2jmmqYDn0iIdTDo2zE5-sTlq04-oVsiNEb8qq84-ZsCVaFgorzfqAiik4Ue5ab1oZi9Kr4qfAY6q3It2ijid24DKo0mrItlGCQXlHxna_7uTZTXiwLVayqskqnDkviodVrWUFrna_5dBtn6NM0Gak8GXrnJmomoV4Dt90KcC00oVcH-0o-nq4mnMknVmxioV0ixkmtMl0mPporsgfndyoeBBmmrl0Mf3yhVAATk2JDnJJ7O4Xn8Kv0LcrH56jeUsguwVGSuyXBQxrn0yl7_aJauoq8iXy2SGau-SzmvWQ2g4P0f7FmTGXgYAuZTcaBqBkaiPeq65-A2kDgJ73-s6QKYRwSg4he-NqQYVczgP_pnVNzxyl7de9SE7UU3bDl4YTxxn0zH58DgfmKY4sFx7NaVX8sXYNvMIhT9Du5XGdvMfmKY4sFYIdx6WnEPGIO.; isg=BEBBGL0bMqOm982WXj5oNSFZEc4SySSTQ9sWtbrZg9tLNftfbdocIiVJSR31ntxr'
   };
 
   try {
@@ -606,7 +607,6 @@ async function sendStudioRequest(text: string, studio: Studio): Promise<Response
   const requestId = await getToken();
   const sessionHash = generateSessionHash();
   const url = `https://s5k.cn/api/v1/studio/${studio.author}/${studio.model}/gradio/run/predict`;
-
   const headers = {
     'Content-Type': 'application/json',
     'x-studio-token': requestId
