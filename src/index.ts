@@ -240,7 +240,7 @@ const studios: Studio[] = [
     language: 'auto',
 
   }, {
-    author: 'zuorinanqiang',
+    author: 'xzjosh',
     name: '东雪莲',
     model: 'Azuma-Bert-VITS2-2.3',
     speaker: '东雪莲',
@@ -287,9 +287,9 @@ const studios: Studio[] = [
 
   },
   {
-    author: 'jrui0920',
+    author: 'xzjosh',
     name: '丁真',
-    model: 'DZhen-Bert-VITS2-2.3',
+    model: 'DZ-Bert-VITS2-2.3',
     speaker: '丁真',
     SDPRatio: 0.5,
     Noise: 0.5,
@@ -323,9 +323,9 @@ const studios: Studio[] = [
 
   },
   {
-    author: 'xzjosh',
+    author: 'ck123111',
     name: '阿梓',
-    model: 'Azusa-Bert-VITS2-2.3',
+    model: 'Azusa-Bert-VITS2',
     speaker: '阿梓',
     SDPRatio: 0.5,
     Noise: 0.5,
@@ -570,7 +570,7 @@ function findStudioByName(name: string): Studio | undefined {
 async function getToken(): Promise<string> {
   const url = 'https://www.modelscope.cn/api/v1/studios/token';
   const headers = {
-    'Cookie': 't=090f6e697c1d60a81d7f5b226738bb6e; h_uid=2217158702449; m_session_id=35910835-8295-4da7-8cd4-025e4f4eb3cd; csrf_session=MTcyMTgxMjQ1OXxEdi1CQkFFQ180SUFBUkFCRUFBQU12LUNBQUVHYzNSeWFXNW5EQW9BQ0dOemNtWlRZV3gwQm5OMGNtbHVad3dTQUJCSFZUbGhiRFY2YTFSMWFWUnZXbU5xfF75rWiyp0hmp211EgY693namxillAM8rcujtM60hgQB; csrf_token=7ta9xcnVH002DRTKrPV21b4JLuA%3D; acw_tc=0b62600e17218142572743805e5b132336766ca4b4b9130ea74093de2cf0c5; tfstk=f7wZm51ObOBZ5CPm82Mqz8_axkMOoxaNPO2jmmqYDn0iIdTDo2zE5-sTlq04-oVsiNEb8qq84-ZsCVaFgorzfqAiik4Ue5ab1oZi9Kr4qfAY6q3It2ijid24DKo0mrItlGCQXlHxna_7uTZTXiwLVayqskqnDkviodVrWUFrna_5dBtn6NM0Gak8GXrnJmomoV4Dt90KcC00oVcH-0o-nq4mnMknVmxioV0ixkmtMl0mPporsgfndyoeBBmmrl0Mf3yhVAATk2JDnJJ7O4Xn8Kv0LcrH56jeUsguwVGSuyXBQxrn0yl7_aJauoq8iXy2SGau-SzmvWQ2g4P0f7FmTGXgYAuZTcaBqBkaiPeq65-A2kDgJ73-s6QKYRwSg4he-NqQYVczgP_pnVNzxyl7de9SE7UU3bDl4YTxxn0zH58DgfmKY4sFx7NaVX8sXYNvMIhT9Du5XGdvMfmKY4sFYIdx6WnEPGIO.; isg=BEBBGL0bMqOm982WXj5oNSFZEc4SySSTQ9sWtbrZg9tLNftfbdocIiVJSR31ntxr'
+    'Cookie': 't=090f6e697c1d60a81d7f5b226738bb6e; h_uid=2217158702449; m_session_id=35910835-8295-4da7-8cd4-025e4f4eb3cd; csrf_session=MTcyMTgxMjQ1OXxEdi1CQkFFQ180SUFBUkFCRUFBQU12LUNBQUVHYzNSeWFXNW5EQW9BQ0dOemNtWlRZV3gwQm5OMGNtbHVad3dTQUJCSFZUbGhiRFY2YTFSMWFWUnZXbU5xfF75rWiyp0hmp211EgY693namxillAM8rcujtM60hgQB; csrf_token=7ta9xcnVH002DRTKrPV21b4JLuA%3D; acw_tc=0bcd4cd217227387236874791ea0d1755bff373017648fc0b563e66a4434d3; tfstk=fkXiUBiYU1R1oVoYS9v_MCNq6WFp1V9XfZHvkKL4Te8IWVHO0tbcPavxBP9O0xYhlILwWEH2mNQIBFkxMSbc0N8Z5lsYi-bhPCr4fIKVK_XihAOVn6McVi6TfKE6CG9X3zU8eZj1fK_yPqnYJMr2cZahOnyRfGiEjqrRT8hcZVdbjE72_BSe0elqQZlZLkx2DVlqQZSUxnTebER23BJem3K20X-Y_F6VL9zwHCpH8_f5KhAw9G8E3H6HjCYPbjHq3mtMsUSw-zb_SPAFcIXjcxAPb__X4NuaoE6hYO5Pzyh97_xc2sjaQvJOCG5ygTzjgavGoQWwtmkMdGLHKHWzDbTdKFQVIBr-EIpFeQJN9Wa9MdxluO_imx7PvgB6Ot4o8E19Vp-chulDoISyUXlrZHkXYoBEGjOwAHY7TPXtVvTYeiZ3xbrX_Ht6ykqnGjOwAHY8xkczcC-BfUC..; isg=BGtrOlVRiRwA19b3-efjJE7Q-o9VgH8C2KEqkt3oR6oBfIveZVAPUgna0jwSx9f6'
   };
 
   try {
